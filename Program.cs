@@ -1,2 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿
+string s =  "";
+for (int i = 0; i < 100; i++)
+{
+    s = s + i + "\n";
+}
+
+System.Console.WriteLine(s);
