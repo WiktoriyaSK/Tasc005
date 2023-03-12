@@ -1,8 +1,21 @@
 ﻿
-string s =  "";
-for (int i = 0; i < 100; i++)
+using System.Text;
+
+
+StringBuilder sb = new();
+for (int i = 0; i < 1000000; i++)
 {
-    s = s + i + "\n";
+    sb.Append(i + "\n");
 }
 
-System.Console.WriteLine(s);
+if (File.Exists("file.txt"))
+{
+    string s = File.ReadAllText("file.txt");
+    //System.Console.WriteLine(s);
+    System.Console.WriteLine("+");
+}
+else
+{
+    File.WriteAllText("file.txt", sb.ToString(), Encoding.UTF8);
+}
+//System.Console.WriteLine(sb);
