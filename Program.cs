@@ -1,17 +1,33 @@
-﻿// zадача 2: Напишите программу замена элементов массива: 
-//положительные элементы замените на соответствующие отрицательные,
-//и наоборот.
-//[-4, -8, 8, 2] -> [4, 8, -8, -2]
-int[] array = new int[12];
+﻿int[] array = new int[12];
+// Заполняем массив рандомными числами
+int[] Random_numbers(int[] mass)
+{
+    for (int i = 0; i < mass.Length; i++)
+    {
+        mass[i] = new Random().Next(-10, 10);
+    }
+    return mass;
+}
+// Выводим массив на печать
+void Massive_output(int[] mass)
+{
+    for (int i = 0; i < mass.Length; i++)
+    {
+        Console.Write(mass[i]+ " ");
+    }
+    Console.WriteLine();
+}
+Random_numbers(array);
+Massive_output(array);
+
+Console.WriteLine("Введите число: ");
+int num = Convert.ToInt32(Console.ReadLine());
 
 for (int i = 0; i < array.Length; i++)
 {
-    array[i] = new Random().Next(-10, 10);
-    Console.Write(array[i] + " "); 
-}
-Console.WriteLine();
-for (int j = 0; j < array.Length; j++)
-{
-    array[j] = array[j] * -1;
-    Console.Write(array[j]+ " ");
+    if(array[i]==num)
+    {
+        Console.WriteLine("Нашли число под индексом: " + i);
+ 
+    }
 }
