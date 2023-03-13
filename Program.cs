@@ -1,25 +1,56 @@
-﻿//Задача 4: Задайте одномерный массив из 123 случайных чисел. 
-//Найдите количество элементов массива, значения которых 
-//лежат в отрезке [10,99].
-//8Пример для массива из 5, а не 123 элементов.
-//В своём решении сделайте для 123
-//[5, 18, 123, 6, 2] -> 1
-//[1, 2, 3, 6, 2] -> 0
-//[10, 11, 12, 13, 14] -> 5
+﻿// Задача 34: Задайте массив заполненный случайными
+// положительными трёхзначными числами. Напишите программу, 
+//которая покажет количество чётных чисел в массиве.
+//[345, 897, 568, 234] -> 2  
 
-int[] array = new int[123];
-int count=0;
 
-for (int i = 0; i < array.Length; i++)
+int size = ReadInt("Введите размерность массива: ");
+int [] numbers = new int[size];
+
+FillArrayRandomNumbers(numbers);
+PrintArray(numbers);
+int result = 0;
+
+for (int i = 0; i < numbers.Length; i++)
 {
-    array[i] = new Random().Next(0, 1000);
-    Console.Write(array[i] + " ");
+    if (numbers[i] % 2 == 0)
+    {
+        result++;
+    }
 }
-Console.WriteLine();
-for (int j = 0; j < array.Length; j++)
+if (result % 10 == 1)
 {
-    if(array[j] > 9 & array[j] < 100) count = count + 1;
+    Console.WriteLine($"В массиве {result} четное число");
 }
-Console.WriteLine();
-Console.Write("Массив совержит следующее количество элементов из отрезка [10,99] - ");
-Console.Write(count);
+if (result % 10 == 2 || result % 10 == 3 || result % 10 == 4)
+{
+    Console.WriteLine($"В массиве {result} четных числа");
+}
+else
+
+    Console.WriteLine($"В массиве {result} четных чисел");
+
+// Методы
+void FillArrayRandomNumbers(int [] array) //Заполнение массива
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = new Random().Next(99, 999);
+    }
+}
+
+void PrintArray(int[] array) //Вывод массива на экран
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write(array[i] + " ");
+    }
+    Console.WriteLine();
+}
+
+
+int ReadInt(string message)  //Функция ввода
+{
+    Console.Write(message);
+    return Convert.ToInt32(Console.ReadLine());
+}
