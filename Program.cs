@@ -1,18 +1,17 @@
-﻿//Задача 1: Задайте массив из 12 элементов,
-// заполненный случайными числами из промежутка [-9, 9].
-// Найдите сумму отрицательных и положительных элементов массива.
-//Например, в массиве [3,9,-8,1,0,-7,2,-1,8,-3,-1,6] сумма положительных чисел равна 29, сумма отрицательных равна -20.
-
+﻿// zадача 2: Напишите программу замена элементов массива: 
+//положительные элементы замените на соответствующие отрицательные,
+//и наоборот.
+//[-4, -8, 8, 2] -> [4, 8, -8, -2]
 int[] array = new int[12];
-int sumPlus = 0;
-int sumMinus = 0;
+
 for (int i = 0; i < array.Length; i++)
 {
-    array[i] = new Random().Next(- 10, 10);
-    Console.Write(array[i] + " ");
-    if(array[i] >= 0) sumPlus = array[i] + sumPlus;
-    else sumMinus = array[i] + sumMinus;
+    array[i] = new Random().Next(-10, 10);
+    Console.Write(array[i] + " "); 
 }
 Console.WriteLine();
-Console.WriteLine($"Сумма положительных элементов массива равна {sumPlus}");
-Console.WriteLine($"Сумма отрицательных элементов массива равна {sumMinus}");
+for (int j = 0; j < array.Length; j++)
+{
+    array[j] = array[j] * -1;
+    Console.Write(array[j]+ " ");
+}
